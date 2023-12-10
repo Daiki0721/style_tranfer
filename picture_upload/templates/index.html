@@ -1,1 +1,29 @@
-<p>helleo</p>
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+<body>
+    <div>
+        <div>
+            <form method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                <table class="table">
+                    {{ form.as_table }}
+                </table>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <div>
+        <h2>ID:{{object.id}}の画像</h2>
+        {% if object.image %}
+            <img src="{{object.image.url}}">
+        {% endif %}
+    </div>
+</body>
+</html>
