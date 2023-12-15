@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from .models import PictureUpload
+from .models import UploadImage, Styles
 from django.views import generic
-from .forms import PictureUploadForm
+from .forms import UploadImageForm
 
 
-class PictureUploadCreateView(generic.CreateView):
-    model = PictureUpload
+class UploadImageCreateView(generic.CreateView):
+    model = UploadImage
     template_name = 'index.html'
-    form_class = PictureUploadForm
+    form_class = UploadImageForm
     success_url = reverse_lazy('picture_upload:result')
-
-class PictureUploadListView(generic.ListView):
-    model = PictureUpload
-    template_name = 'result.html'
+    extra_context = {
+        "list": Styles.objects.all(),
+    }
+    
+class UploadImageListView(generic.ListView):
+    model = UploadImage
+    template_name = 'index.html'
+    paginate_by = 10

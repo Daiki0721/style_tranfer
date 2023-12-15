@@ -16,14 +16,25 @@
                 </table>
                 <button type="submit">Submit</button>
             </form>
+            <div>
+                
+                <h2>{{list.0.id}}の画像</h2>
+
+                    <img src="{{list.0.style_image.url}}">
+                
+                
+            </div>
         </div>
     </div>
-    
-    <div>
-        <h2>ID:{{object.id}}の画像</h2>
-        {% if object.image %}
-            <img src="{{object.image.url}}">
-        {% endif %}
-    </div>
+    <form method="post" enctype="multipart/form-data" action="/" class="mx-auto">
+        <label>
+          <img src="{{list.0.style_image.url}}">
+          <input name="file" type="radio" accept="image/*" required="">
+        </label>
+        <label for="submit" >
+          <input id="submit" name="file" type="submit" accept="image/*" required="">
+        </label>
+    </form>
+
 </body>
 </html>

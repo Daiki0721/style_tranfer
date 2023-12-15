@@ -3,6 +3,6 @@ from . import views
 
 app_name = 'picture_upload'
 urlpatterns = [
-    path('', views.PictureUploadCreateView.as_view(), name='index'),
-    path('result', views.PictureUploadListView.as_view(), name='result')
+    path('', views.UploadImageCreateView.as_view(), name='index'),
+    path('result', views.UploadImageListView.as_view(), name='result')
 ]
