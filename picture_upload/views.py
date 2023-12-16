@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import UploadImage, Styles
 from django.views import generic
 from .forms import UploadImageForm
@@ -9,15 +9,21 @@ class UploadImageCreateView(generic.CreateView):
     model = UploadImage
     template_name = 'index.html'
     form_class = UploadImageForm
-    success_url = reverse_lazy('picture_upload:result')
     extra_context = {
         "list": Styles.objects.all(),
     }
-    
-class UploadImageListView(generic.ListView):
+
+    def get_success_url(self):
+        return reverse('picture_upload:result', kwargs={'pk':self.object.pk})
+
+class UploadImageDetailView(generic.DetailView):
     model = UploadImage
     template_name = 'result.html'
+
+
+class UploadImageListView(generic.ListView):
+    model = UploadImage
+    template_name = 'list_result.html'
     paginate_by = 10
-    extra_context = {
-        "list": Styles.objects.all(),
-    }
+    
+    

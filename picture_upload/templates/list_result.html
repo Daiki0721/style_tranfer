@@ -1,0 +1,21 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+<body>
+    <div>
+        {% for object in object_list %}
+        <h2>ID:{{object.style_num.style_num}}の画像</h2>
+        {% if object.contents_image %}
+            <img src="{{object.contents_image.url}}">
+        {% endif %}
+        <h2>ID:{{object.style_num.style_num}}の画像</h2>
+        <img class="img--preview" src="{{object.style_num.style_image.url}}">
+        {% endfor %}
+    </div>
+</body>
+</html>

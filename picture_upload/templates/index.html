@@ -15,19 +15,29 @@
                     <tr>
                         <th><label for="id_contents_image">Contents_image:</label></th>
                             <td>
-                                <input type="file" name="contents_image" accept="image/*" required id="id_contents_image">
+                                <input type="file" name="contents_image" accept=".jpg, .jpeg, .png, .gif" required id="id_contents_image">
                             </td>
                         <th></th>
-                            <label for="id_style_num">
+                            <label for="id_style_num0">
                                 <img class="img--preview" src="{{list.0.style_image.url}}">
                                 <td>
-                                    <input type="radio" name="style_num" required id="id_style_num" value="{{list.0.style_num}}">
+                                    <input type="radio" name="style_num" required id="id_style_num0" value="{{list.0.style_num}}">
+                                </td>
+                            </label>
+                        <th></th>
+                            <label for="id_style_num1">
+                                <img class="img--preview" src="{{list.1.style_image.url}}">
+                                <td>
+                                    <input type="radio" name="style_num" required id="id_style_num1" value="{{list.1.style_num}}">
                                 </td>
                             </label>
                     </tr>
                 </table>
                 <input type='submit' class='btn btn-default' value='Submit' />
             </form>
+            {% for error in form.errors %}
+                {{ error }}
+            {% endfor %}
         </div>
     </div>
 </body>
