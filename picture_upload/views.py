@@ -16,5 +16,8 @@ class UploadImageCreateView(generic.CreateView):
     
 class UploadImageListView(generic.ListView):
     model = UploadImage
-    template_name = 'index.html'
+    template_name = 'result.html'
     paginate_by = 10
+    extra_context = {
+        "list": Styles.objects.all(),
+    }

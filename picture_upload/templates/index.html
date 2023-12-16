@@ -12,29 +12,23 @@
             <form method="POST" enctype='multipart/form-data'>
                 {% csrf_token %}
                 <table class="table">
-                    {{ form.as_table }}
+                    <tr>
+                        <th><label for="id_contents_image">Contents_image:</label></th>
+                            <td>
+                                <input type="file" name="contents_image" accept="image/*" required id="id_contents_image">
+                            </td>
+                        <th></th>
+                            <label for="id_style_num">
+                                <img class="img--preview" src="{{list.0.style_image.url}}">
+                                <td>
+                                    <input type="radio" name="style_num" required id="id_style_num" value="{{list.0.style_num}}">
+                                </td>
+                            </label>
+                    </tr>
                 </table>
-                <button type="submit">Submit</button>
+                <input type='submit' class='btn btn-default' value='Submit' />
             </form>
-            <div>
-                
-                <h2>{{list.0.id}}の画像</h2>
-
-                    <img src="{{list.0.style_image.url}}">
-                
-                
-            </div>
         </div>
     </div>
-    <form method="post" enctype="multipart/form-data" action="/" class="mx-auto">
-        <label>
-          <img src="{{list.0.style_image.url}}">
-          <input name="file" type="radio" accept="image/*" required="">
-        </label>
-        <label for="submit" >
-          <input id="submit" name="file" type="submit" accept="image/*" required="">
-        </label>
-    </form>
-
 </body>
 </html>

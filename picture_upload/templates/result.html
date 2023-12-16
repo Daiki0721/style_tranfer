@@ -9,11 +9,13 @@
 <body>
     <div>
         {% for object in object_list %}
-        <h2>ID:{{object.id}}の画像</h2>
-        {% if object.image %}
-            <img src="{{object.image.url}}">
+        <h2>ID:{{object.style_num.style_num}}の画像</h2>
+        {% if object.contents_image %}
+            <img src="{{object.contents_image.url}}">
         {% endif %}
         {% endfor %}
+        <h2>ID:{{list.0.style_num}}の画像</h2>
+        <img class="img--preview" src="{{list.0.style_image.url}}">
     </div>
 </body>
 </html>
