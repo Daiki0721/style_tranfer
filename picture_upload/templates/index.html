@@ -52,6 +52,9 @@
                   <img class="img--preview" src="{{ img_path }}">
                   <input name="file" type="file" accept="image/*" required="">
                 </label>
+                {% if object.contents_image %}
+                <img src="{{ list.style_image.url }}" width="200" height="200"/>
+                {% endif %}
                 <label for="submit" class="submit my-5 mx-auto">
                   <input id="submit" name="file" type="submit" accept="image/*" required="">
                   <p>submit</p>
