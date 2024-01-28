@@ -13,3 +13,5 @@ $('#preview').on('change', function (e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 });
+
+$('.single-item').slick();
