@@ -1,5 +1,5 @@
 db.sqlite3
 /media
 /picture_upload/.DS_Store
-/Users/daiki/Desktop/style_transfer/style_transfer/my_model.h5
+../style_transfer/my_model.h5
 .DS_Store
