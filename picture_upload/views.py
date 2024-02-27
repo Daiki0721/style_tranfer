@@ -1,9 +1,10 @@
+
+
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from .models import UploadImage, Styles
 from django.views import generic
 from .forms import UploadImageForm
-
 
 class UploadImageCreateView(generic.CreateView):
     model = UploadImage
@@ -20,10 +21,7 @@ class UploadImageDetailView(generic.DetailView):
     model = UploadImage
     template_name = 'result.html'
 
-
 class UploadImageListView(generic.ListView):
     model = UploadImage
     template_name = 'list_result.html'
     paginate_by = 10
-    
-    
