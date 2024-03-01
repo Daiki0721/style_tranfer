@@ -1,6 +1,8 @@
 from django.db import models
 import os
 from django.core.exceptions import ValidationError
+import cv2
+from django.conf import settings
 
 
 def validate_is_picture(value):
@@ -31,7 +33,7 @@ class Styles(models.Model):
 class UploadImage(models.Model):
     contents_image = models.ImageField(verbose_name='contents_image', upload_to='img/', validators=[validate_is_picture, validate_max_size],)
     style_num = models.ForeignKey(Styles, on_delete=models.CASCADE)
-    created_image = models.ImageField(verbose_name='created_image',upload_to='created_img/',)
+    created_image = models.ImageField(verbose_name='created_image', upload_to='created_img/',)
 
     class Meta:
         verbose_name_plural = 'UploadImage'
