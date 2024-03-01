@@ -4,3 +4,4 @@ db.sqlite3
 my_model.h5
 ../my_model.h5
 .DS_Store
+*.h5
